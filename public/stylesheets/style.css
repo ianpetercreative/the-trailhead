@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+.hikes-index-section {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+
+}
+
+.hikes-index-card {
+  width: 25%;
+  margin: 0 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box; 
+  padding: 10px;
+  background-color: #f0f0f0; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+}

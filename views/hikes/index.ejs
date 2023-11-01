@@ -2,11 +2,16 @@
 
 <h2><%= title %></h2>
 <div>sorting method</div>
-<section class="hikes-index">
-    <div class="hike-card">Hike Info</div>
-    <div class="hike-card">Hike Info</div>
-    <div class="hike-card">Hike Info</div>
-</section>
 
+<section id="hikes-index-section">
+<% hikes.forEach((hike) => { %>
+    <article class="hikes-index-card">
+        <span class="hikes-index-name"><%= hike.name %></span>
+        <span class="hikes-index-location"><%= hike.location %></span>
+        <span class="hikes-index-difficulty"><%= hike.difficulty %></span>
+        <span class="hikes-index-length"><%= hike.length %></span>
+    </article>
+<% }) %>
+</section>
 
 <%- include('../partials/footer') %>

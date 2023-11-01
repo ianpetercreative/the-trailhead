@@ -10,7 +10,17 @@ function newHike(req, res){
     res.render('hikes/new', { title: 'Add a New Hike', errorMsg: '' })
 }
 
+async function createHike(req, res){
+    try {
+        const newHike = await Hike.create(req.body)
+        res.redirect('/hikes');
+    } catch(err){
+        res.render('hikes/new', { title: 'Add a New Hike', errorMsg: err.message })
+    }
+}
+
 module.exports = {
     index,
     new: newHike,
+    create: createHike,
 }
