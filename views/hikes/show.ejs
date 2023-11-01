@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h2><%= title %></h2>
+<br>
+<div>Location: <%= hike.location %></div>
+<br>
+<div>Difficulty: <%= hike.difficulty %></div>
+<br>
+<div>Length: <%= hike.length %> miles</div>
+<br>
+<div>Description: <%= hike.description %></div>
+<br>
+<div>Categories: 
+    <% hike.categories.forEach((c) => { %>
+        <span class="hikes-show-category"><%= c %></span>
+    <% }) %>
+</div>
+
+<%- include('../partials/footer') %>

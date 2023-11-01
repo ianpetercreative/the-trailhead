@@ -19,8 +19,15 @@ async function createHike(req, res){
     }
 }
 
+async function show(req, res) {
+    const hike = await Hike.findById(req.params.id);
+
+    res.render('hikes/show', { title: hike.name , hike });
+  }
+
 module.exports = {
     index,
     new: newHike,
     create: createHike,
+    show,
 }

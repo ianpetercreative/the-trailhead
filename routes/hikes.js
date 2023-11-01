@@ -8,6 +8,8 @@ router.get('/', hikesCtrl.index);
 
 router.get('/new', hikesCtrl.new);
 
+router.get('/:id', hikesCtrl.show)
+
 router.post('/', hikesCtrl.create)
 
 module.exports = router;
