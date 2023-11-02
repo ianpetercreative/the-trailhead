@@ -5,7 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <nav>
+    <!-- <nav>
       <a href="/">Home</a>
       &nbsp;|&nbsp; 
       <a href="/hikes" <%- title === 'All Hikes' ? 'class="active"' : '' %>>All Hikes</a>
@@ -18,5 +18,21 @@
             &nbsp;|&nbsp; 
             <a href="/auth/google" class="login">Log In</a>
       <% } %>
+    </nav> -->
+
+    <nav id="nav">
+      <div id="menu-icon">&#9776;</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/hikes" <%- title === 'All Hikes' ? 'class="active"' : '' %>>All Hikes</a></li>
+        <% if (user) { %>
+          <li><a href="/hikes/new" <%- title === 'Add a Hike' ? 'class="active"' : '' %>>Add a Hike</a></li>
+          <li><a href="/logout">Log Out</a></li>
+          <li class="user-avatar"><img src="<%- user.avatar %>"></li>
+        <% } else { %>
+          <li><a href="/auth/google" class="login">Log In</a></li>
+        <% } %>
+      </ul>
+      <div class="site-title"><%= title %></div>
     </nav>
 

@@ -32,7 +32,7 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
-    Hike.update( req.params.id, req.body )
+    const updatedHike = await Hike.findByIdAndUpdate( req.params.id, req.body, { new: true } )
     res.redirect(`/hikes/${req.params.id}`)
 }
 
