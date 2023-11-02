@@ -33,10 +33,7 @@ const hikeSchema = new Schema({
     description: { type: String },
     categories: [{ type: String }],
     reviews: [reviewSchema],
-    // eventually add:
-    // review: reviewSchema
-    // user data of the person that created the hike? 
-    // images!!! 
+    rating: [],
 }, {
     timestamps: true
 })

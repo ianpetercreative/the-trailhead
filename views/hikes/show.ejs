@@ -17,6 +17,9 @@
         <span class="hikes-show-category"><%= c %></span>
     <% }) %>
 </div>
+<% if (user) { %>
+<a href="/hikes/<%= hike._id %>/edit">Edit Hike</a>
+<% } %>
 
 <br>
 <br>

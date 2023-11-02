@@ -25,9 +25,22 @@ async function show(req, res) {
     res.render('hikes/show', { title: hike.name , hike });
   }
 
+
+async function edit(req, res) {
+    const hike = await Hike.findById(req.params.id);
+    res.render('hikes/edit', { title: "Edit Hike", hike })
+}
+
+async function update(req, res) {
+    Hike.update( req.params.id, req.body )
+    res.redirect(`/hikes/${req.params.id}`)
+}
+
 module.exports = {
     index,
     new: newHike,
     create: createHike,
     show,
+    edit,
+    update,
 }

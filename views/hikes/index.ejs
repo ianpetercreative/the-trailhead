@@ -9,7 +9,17 @@
         <span class="hikes-index-name"><%= hike.name %></span>
         <span class="hikes-index-location"><%= hike.location %></span>
         <span class="hikes-index-difficulty"><%= hike.difficulty %></span>
-        <span class="hikes-index-length"><%= hike.length %></span>
+        <span class="hikes-index-rating">
+            <% if (hike.reviews.length) { %>
+                <% let total = 0 %>
+                <% hike.reviews.forEach((r) => { %>
+                    <% total += r.rating %>
+                <% }) %>
+                <% hike.rating = (total / hike.reviews.length).toFixed(1) %>
+                <%= hike.rating %>
+            <% } %>
+                </span>
+                <span class="hikes-index-length"><%= hike.length %></span>
         <a href="/hikes/<%= hike._id %>">Read More</a>
         </article>
 <% }) %>

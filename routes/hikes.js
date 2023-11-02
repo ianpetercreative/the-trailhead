@@ -9,8 +9,13 @@ router.get('/', hikesCtrl.index);
 
 router.get('/new', ensureLoggedIn, hikesCtrl.new);
 
-router.get('/:id', hikesCtrl.show)
+router.get('/:id/edit', ensureLoggedIn, hikesCtrl.edit);
 
-router.post('/', ensureLoggedIn, hikesCtrl.create)
+router.get('/:id', hikesCtrl.show);
+
+router.post('/', ensureLoggedIn, hikesCtrl.create);
+
+router.put('/:id', ensureLoggedIn, hikesCtrl.update);
+
 
 module.exports = router;

@@ -1,0 +1,75 @@
+<%- include('../partials/header') %>
+
+<h2><%= title %></h2>
+
+
+<form action="/hikes/<%= hike.id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Name of Trail/Hike:</label>
+    <input type="text" name="name" value="<%= hike.name %>">
+
+    <br>
+    
+    <label>Location:</label>
+    <input type="text" name="location" value="<%= hike.location %>">
+    
+    <br>
+    
+    <label>Difficulty:</label>
+    <select name="difficulty">
+        <option value="easy" <% if (hike.difficulty === 'easy') { %>selected<% } %>>Easy</option>
+        <option value="moderate" <% if (hike.difficulty === 'moderate') { %>selected<% } %>>Moderate</option>
+        <option value="challenging" <% if (hike.difficulty === 'challenging') { %>selected<% } %>>Challenging</option>
+        <option value="advanced" <% if (hike.difficulty === 'advanced') { %>selected<% } %>>Advanced</option>
+    </select>
+
+    <br>
+    
+    <label>Route Type:</label>
+    <select name="routeType">
+      <option value="loop" <% if (hike.routeType === 'loop') { %>selected<% } %>>Loop</option>
+      <option value="out and back" <% if (hike.routeType === 'out and back') { %>selected<% } %>>Out and Back</option>
+      <option value="point to point" <% if (hike.routeType === 'point to point') { %>selected<% } %>>Point to Point</option>
+    </select>
+    
+    <br>
+    
+    <label>Length (in miles):</label>
+    <input type="text" name="length" pattern="\d+(\.\d{1})?" value="<%= hike.length %>" required>
+    
+    <br>
+    
+    <label>Description:</label>
+    <br>
+    <textarea name="description" cols="30" rows="10" value="<%= hike.description %>"><%= hike.description %></textarea>
+    
+    <br>
+
+    <fieldset>
+        <legend>Categories (select all that apply):</legend>
+        <label>
+          <input type="checkbox" name="categories" value="Dog-Friendly" <% if (hike.categories.includes('Dog-Friendly')) { %>checked<% } %>> 
+          Dog-Friendly
+        </label>
+      
+        <label>
+          <input type="checkbox" name="categories" value="Scenic Views" <% if (hike.categories.includes('Scenic Views')) { %>checked<% } %>>
+          Scenic Views
+        </label>
+      
+        <label>
+          <input type="checkbox" name="categories" value="Wildlife" <% if (hike.categories.includes('Wildlife')) { %>checked<% } %>> 
+          Wildlife
+        </label>
+      
+        <label>
+          <input type="checkbox" name="categories" value="Waterfalls" <% if (hike.categories.includes('Waterfalls')) { %>checked<% } %>> 
+          Waterfalls
+        </label>
+      </fieldset>
+  
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+
+<%- include('../partials/footer') %>
