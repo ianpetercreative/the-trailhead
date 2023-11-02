@@ -6,10 +6,14 @@
 <section id="hikes-index-section">
 <% hikes.forEach((hike) => { %>
     <article class="hikes-index-card">
-        <span class="hikes-index-name"><%= hike.name %></span>
-        <span class="hikes-index-location"><%= hike.location %></span>
-        <span class="hikes-index-difficulty"><%= hike.difficulty %></span>
-        <span class="hikes-index-rating">
+        <div class="hike-image">
+            <div class="image-placeholder">Image Placeholder</div>
+        </div>
+        <div class="hike-details">
+            <span class="hikes-index-name"><%= hike.name %></span>
+            <span class="hikes-index-location"><%= hike.location %></span>
+            <span class="hikes-index-difficulty"><%= hike.difficulty %></span>
+            <span class="hikes-index-rating">
             <% if (hike.reviews.length) { %>
                 <% let total = 0 %>
                 <% hike.reviews.forEach((r) => { %>
@@ -18,11 +22,14 @@
                 <% hike.rating = (total / hike.reviews.length).toFixed(1) %>
                 <%= hike.rating %>
             <% } %>
-                </span>
-                <span class="hikes-index-length"><%= hike.length %></span>
-        <a href="/hikes/<%= hike._id %>">Read More</a>
+            </span>
+            <span class="hikes-index-length"><%= hike.length %></span>
+            <a href="/hikes/<%= hike._id %>">Read More</a>
+        </div>
         </article>
 <% }) %>
+
+
 </section>
 
 <%- include('../partials/footer') %>

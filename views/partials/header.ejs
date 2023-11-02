@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>The Trailhead</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <!-- <nav>
-      <a href="/">Home</a>
-      &nbsp;|&nbsp; 
-      <a href="/hikes" <%- title === 'All Hikes' ? 'class="active"' : '' %>>All Hikes</a>
-      <% if (user) { %>
-        &nbsp;|&nbsp; 
-        <a href="/hikes/new"	<%- title === 'Add a Hike' ? 'class="active"' : '' %>>Add a Hike</a>
-        &nbsp;|&nbsp; 
-        <a href="/logout">Log Out</a>
-        <% } else { %>
-            &nbsp;|&nbsp; 
-            <a href="/auth/google" class="login">Log In</a>
-      <% } %>
-    </nav> -->
-
     <nav id="nav">
-      <div id="menu-icon">&#9776;</div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/hikes" <%- title === 'All Hikes' ? 'class="active"' : '' %>>All Hikes</a></li>
+      <div id="nav-title">The Trailhead</div>
+      <ul id="nav-ul">
+        <li><a href="/" class="nav-link <%= title === 'The Trailhead' ? 'active' : '' %>">Home</a></li>
+        <!-- <li><a href="/hikes" class="nav-link" <%- title === 'All Hikes' ? 'class="active"' : '' %>>All Hikes</a></li> -->
+        <li><a href="/hikes" class="nav-link <%= title === 'All Hikes' ? 'active' : '' %>">All Hikes</a></li>
+
         <% if (user) { %>
-          <li><a href="/hikes/new" <%- title === 'Add a Hike' ? 'class="active"' : '' %>>Add a Hike</a></li>
-          <li><a href="/logout">Log Out</a></li>
-          <li class="user-avatar"><img src="<%- user.avatar %>"></li>
+          <li><a href="/hikes/new" class="nav-link <%= title === 'Add a Hike' ? 'active' : '' %>">Add a Hike</a></li>
+          <li><a href="/logout" class="nav-link">Log Out</a></li>
         <% } else { %>
-          <li><a href="/auth/google" class="login">Log In</a></li>
+          <li><a href="/auth/google" class="login nav-link">Log In</a></li>
         <% } %>
       </ul>
-      <div class="site-title"><%= title %></div>
     </nav>
-

@@ -1,31 +1,178 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Sansita', 'Overpass', sans-serif;
+  box-sizing: border-box;
 }
 
 a {
   color: #00B7FF;
 }
 
-.hikes-index-section {
+
+
+
+
+#nav {
   display: flex;
-  justify-content: center;
-  width: 80%;
-
+  justify-content: space-between;
+  align-items: center;
+  background-color: #606C38;
+  color: #fff;
+  padding: 10px 20px;
 }
 
-.hikes-index-card {
-  width: 25%;
-  margin: 0 10px;
-  margin-bottom: 10px;
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box; 
-  padding: 10px;
-  background-color: #f0f0f0; 
-  border: 1px solid #ddd; 
-  border-radius: 5px; 
+#nav-ul {
+  list-style: none;
+  display: flex; 
+  justify-content: space-around;
 }
+
+#nav-ul > li {
+  font-size: 18px;
+  margin: 0 15px;
+}
+
+#nav-title {
+  font-size: 32px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #FEFAE0;
+}
+
+.active {
+  color: #DDA15E; 
+}
+
+
+
+
+
+
 
 
 /* this stuff */
+
+/* .hike-image {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.hike-details {
+  text-align: left;
+} */
+
+
+/* .hike-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.hike-details {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.hikes-index-name,
+.hikes-index-location,
+.hikes-index-difficulty {
+  text-align: left;
+  margin: 0;
+}
+
+.hikes-index-rating {
+  text-align: left;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Placeholder for the image */
+.hike-image::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background-color: #ddd;
+} */
+
+
+
+
+
+
+
+
+#hikes-index-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 20px; /* Gap between cards */
+}
+
+.hikes-index-card {
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.hike-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder {
+  text-align: center;
+  font-size: 16px;
+  background-color: #ddd;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hike-details {
+  flex: 40%; /* Takes up 40% of the card width */
+  display: flex;
+  flex-direction: column;
+}
+
+
+#hikes-index-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* .hikes-index-card {
+  display: grid;
+  grid-template-rows: 60% 1fr;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} */
+
+.hikes-index-card {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
