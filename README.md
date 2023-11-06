@@ -14,6 +14,7 @@ The Hiking Trails App is a web application that helps outdoor enthusiasts discov
 
 #### Add a Hike Page
 ![Add a Hike 1](public/images/add-1.png)
+<br>
 ![Add a Hike 2](public/images/add-2.png)
 
 ## Technologies Used
