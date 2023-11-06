@@ -14,7 +14,6 @@ The Hiking Trails App is a web application that helps outdoor enthusiasts discov
 
 #### Add a Hike Page
 ![Add a Hike 1](public/images/add-1.png)
-<br>
 ![Add a Hike 2](public/images/add-2.png)
 
 ## Technologies Used
@@ -31,7 +30,7 @@ The Hiking Trails App is a web application that helps outdoor enthusiasts discov
 - Heroku
 
 ## Getting Started 
-[Trello Board](https://trello.com/b/0SbNbZs9/sei-hikingappuserstories)
+[Trello Board](https://trello.com/b/0SbNbZs9/sei-hikingappuserstories)  
 [Heroku]()
 
 ## Next Steps 
