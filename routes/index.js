@@ -3,7 +3,6 @@ var router = express.Router();
 const passport = require('passport'); 
 const ensureLoggedIn = require('../config/ensureLoggedIn')
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'The Trailhead' });
 });

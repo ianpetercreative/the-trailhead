@@ -10,7 +10,6 @@ var methodOverride = require('method-override');
 
 
 require('dotenv').config();
-// connect to the database with AFTER the config vars are processed
 require('./config/database');
 require('./config/passport')
 
