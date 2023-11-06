@@ -1,8 +1,8 @@
-# Hiking Trails App
+# The Trailhead
 
 ## Description
 
-The Hiking Trails App is a web application that helps outdoor enthusiasts discover and share their favorite hiking trails. Users can browse a collection of hiking trails, view trail details, leave reviews, and add new trails to the database. Whether you're looking for your first trail or looking for a new place to explore, this app will help you find your next adventure. **Welcome to The Trailhead!**
+The Trailhead App is a web application that helps outdoor enthusiasts discover and share their favorite hiking trails. Users can browse a collection of hiking trails, view trail details, leave reviews, and add new trails to the database. Whether you're looking for your first trail or looking for a new place to explore, this app will help you find your next adventure. **Welcome to The Trailhead!**
 
 ## Screenshots
 #### All Hikes Page
