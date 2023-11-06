@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: 'Sansita', 'Overpass', sans-serif;
+  font-family: 'Overpass', 'Sansita', sans-serif;
   box-sizing: border-box;
 }
 
@@ -9,9 +9,14 @@ a {
   color: #00B7FF;
 }
 
+h1 {
+  text-align: center;
+}
 
-
-
+h2 {
+  color: #aaa; 
+  margin-bottom: 5px;
+}
 
 #nav {
   display: flex;
@@ -20,6 +25,7 @@ a {
   background-color: #606C38;
   color: #fff;
   padding: 10px 20px;
+  font-family: 'Sansita';
 }
 
 #nav-ul {
@@ -35,6 +41,7 @@ a {
 
 #nav-title {
   font-size: 32px;
+  font-weight: 700;
 }
 
 .nav-link {
@@ -55,68 +62,14 @@ a {
 
 /* this stuff */
 
-/* .hike-image {
-  width: 100%;
-  height: auto;
-  max-height: 150px;
-  object-fit: cover;
-}
-
-.hike-details {
-  text-align: left;
-} */
-
-
-/* .hike-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.hike-details {
-  padding: 10px;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-}
-
-.hikes-index-name,
-.hikes-index-location,
-.hikes-index-difficulty {
-  text-align: left;
-  margin: 0;
-}
-
-.hikes-index-rating {
-  text-align: left;
-  font-weight: bold;
-  margin: 0;
-}
-
-/* Placeholder for the image */
-.hike-image::before {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  background-color: #ddd;
-} */
-
-
-
-
-
-
-
-
 #hikes-index-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns */
-  gap: 20px; /* Gap between cards */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
 }
 
 .hikes-index-card {
+  font-family: 'Overpass', sans-serif;
   box-sizing: border-box;
   padding: 20px;
   background-color: #f0f0f0;
@@ -125,12 +78,15 @@ a {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .hike-image {
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 .image-placeholder {
@@ -144,28 +100,17 @@ a {
   justify-content: center;
 }
 
-.hike-details {
-  flex: 40%; /* Takes up 40% of the card width */
+.hike-details, .featured-hikes {
+  flex: 40%; 
   display: flex;
   flex-direction: column;
 }
-
 
 #hikes-index-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
-/* .hikes-index-card {
-  display: grid;
-  grid-template-rows: 60% 1fr;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-} */
 
 .hikes-index-card {
   padding: 20px;
@@ -175,4 +120,317 @@ a {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%; 
+}
+
+.hike-show-button {
+  align-self: flex-end;
+}
+
+.hikes-diff-rating {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.hikes-index-difficulty {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  padding: 3px 7px;
+  background-color: #9d9d9d;
+  color: white; 
+  border-radius: 10px;
+  border: 1px solid #fefae0;
+}
+
+.easy {
+  background-color: #8FA253;
+}
+
+.moderate {
+  background-color: #fff262;
+  color: black; 
+}
+
+.challenging {
+  background-color: #ff9914;
+}
+
+.advanced {
+  background-color: #e02500; 
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-star {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 3px;
+}
+
+.hikes-index-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.hikes-index-location, .hikes-index-length {
+  font-weight: 300;
+}
+
+.hikes-index-rating {
+  font-size: 12px;
+}
+
+.show-page-hero {
+  position: relative;
+  color: white; 
+  overflow: hidden;
+}
+.show-page-image {
+  background-image: url(/images/show-page-header.jpg);
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.show-page-overlay {
+  position: absolute; 
+  top: 53%; 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px; 
+  font-size: 18px;
+}
+
+.show-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0; 
+}
+
+.show-difficulty {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 20px;
+  border: 1px solid #fefae0;
+}
+
+.show-rating {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.show-location,
+.show-difficulty,
+.show-rating {
+  margin: 2px 0;
+}
+
+.show-hike-details {
+  text-align: left;
+  width: 50%;
+}
+
+.detail-title {
+  color: #aaaaaa; 
+  font-weight: 700;
+}
+
+.detail-text {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.show-page-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2.5% 0 2.5%;
+  width: 80%;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.show-categories {
+  padding: 10px; 
+}
+
+.hikes-show-category, .edit-hike, .review-submit, .add-edit-hike {
+  background-color: transparent;
+  margin: 0 5px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid #283618;
+  height: 28px;
+  padding: 4px 12px;
+  color: #283618;
+}
+
+.hikes-show-category:hover, .edit-hike:hover, .review-submit:hover, .add-edit-hike {
+  background-color: #283618;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-hike {
+  text-decoration: none;
+  width: fit-content;
+  position: absolute;
+  right: 75px;
+  top: 450px; 
+}
+
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 25px;
+}
+
+.review-table {
+  text-align: center;
+}
+.review-table thead th {
+  font-size: 16px;
+  padding: 5px;
+  border-bottom: 2px solid #283618;
+  color: #283618;
+}
+
+.review-table td {
+  padding: 10px;
+}
+
+.review-table td:nth-child(2), .review-table td:nth-child(3){
+  min-width: 100px;
+}
+
+#add-review-form {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#add-review-form label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+
+#add-review-form textarea,
+#add-review-form select {
+  font-family: 'Overpass', sans-serif;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#add-review-form textarea {
+  width: 100%;
+  max-width: 98%; 
+}
+
+#add-review-form select {
+  background-color: white;
+  width: 3%;
+}
+
+.review-submit {
+  font-family: 'Overpass', sans-serif;
+}
+
+.new-edit-hike-form {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.new-edit-hike-form label {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.new-edit-hike-form input[type="text"],
+.new-edit-hike-form select,
+.new-edit-hike-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.new-edit-hike-form select {
+  width: 10%;
+}
+
+.hike-form-textarea {
+  height: 150px;
+  resize: vertical;
+  font-family: 'Overpass', sans-serif;
+  font-size: 16px;
+}
+
+.new-edit-hike-form input[type="text"], .new-edit-hike-form textarea {
+  max-width: 98%;
+}
+
+.new-edit-hike-form fieldset label {
+  display: block;
+  font-weight: 400;
+}
+
+legend {
+  font-weight: 700;
+}
+
+.add-edit-hike {
+  font-family: 'Overpass', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  width: 150px;
+  height: 50px
+}
+
+.add-edit-hike:hover {
+  background-color: transparent;
+  border: 1px solid #283618;
+  color: #283618;
+}
+
+.review-content {
+  text-align: left;
 }

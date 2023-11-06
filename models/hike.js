@@ -27,8 +27,8 @@ const reviewSchema = new Schema({
 const hikeSchema = new Schema({
     name: { type: String, required: true },
     location: { type: String, required: true },
-    difficulty: { type: String, required: true, enum: ['easy', 'moderate', 'challenging', 'advanced'], default: 'moderate' },
-    routeType: { type: String, enum: ['loop', 'out and back', 'point to point'], default: 'out and back' },
+    difficulty: { type: String, required: true, enum: ['Easy', 'Moderate', 'Challenging', 'Advanced'], default: 'Moderate' },
+    routeType: { type: String, enum: ['Loop', 'Out and Back', 'Point to Point'], default: 'out and back' },
     length: { type: Number, required: true, min: 0.1, max: 999.9 },
     description: { type: String },
     categories: [{ type: String }],

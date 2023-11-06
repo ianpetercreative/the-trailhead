@@ -1,31 +1,48 @@
 <%- include('../partials/header') %>
 
-<h2><%= title %></h2>
-<div>sorting method</div>
+<h1><%= title %></h1>
 
 <section id="hikes-index-section">
-<% hikes.forEach((hike) => { %>
-    <article class="hikes-index-card">
-        <div class="hike-image">
-            <div class="image-placeholder">Image Placeholder</div>
-        </div>
-        <div class="hike-details">
-            <span class="hikes-index-name"><%= hike.name %></span>
-            <span class="hikes-index-location"><%= hike.location %></span>
-            <span class="hikes-index-difficulty"><%= hike.difficulty %></span>
-            <span class="hikes-index-rating">
-            <% if (hike.reviews.length) { %>
-                <% let total = 0 %>
-                <% hike.reviews.forEach((r) => { %>
-                    <% total += r.rating %>
-                <% }) %>
-                <% hike.rating = (total / hike.reviews.length).toFixed(1) %>
-                <%= hike.rating %>
-            <% } %>
-            </span>
-            <span class="hikes-index-length"><%= hike.length %></span>
-            <a href="/hikes/<%= hike._id %>">Read More</a>
-        </div>
+    <% hikes.sort((a, b) => a.name.localeCompare(b.name)).forEach((hike) => { %>
+        <article class="hikes-index-card">
+            <div class="hike-image">
+                <div class="image-placeholder">Image Placeholder</div>
+            </div>
+            <div class="hike-details">
+                <div class="hikes-diff-rating">
+                    <div class="rating">
+                        <img src="images/star.png" alt="rating-star" class="rating-star">
+                        &nbsp;
+                        <span class="hikes-index-rating">
+                            <% if (hike.reviews.length) { %>
+                                <% let total = 0 %>
+                                <% hike.reviews.forEach((r) => { %>
+                                    <% total += r.rating %>
+                                    <% }) %>
+                                    <% hike.rating = (total / hike.reviews.length).toFixed(1) %>
+                                    <%= hike.rating %> (<%= hike.reviews.length %>)
+                                    <% } else { %>
+                                        No Reviews Yet
+                                    <% } %>
+                                </span>
+                    </div>
+                    <span class="hikes-index-difficulty <% if (hike.difficulty === 'Easy') { %>
+                        easy
+                    <% } else if (hike.difficulty === 'Moderate') { %> 
+                        moderate
+                    <% } else if (hike.difficulty === 'Challenging') { %>
+                        challenging
+                    <% } else if (hike.difficulty === 'Advanced') { %> 
+                        advanced
+                    <% } %>"><%= hike.difficulty %></span>
+                </div>
+                <span class="hikes-index-name"><%= hike.name %></span>
+                <span class="hikes-index-location"><%= hike.location %></span>
+                <span class="hikes-index-length">Length: <%= hike.length %> mi</span>
+            </div>
+            <div class="hike-show-button">
+                <a href="/hikes/<%= hike._id %>">Read More</a>
+            </div>
         </article>
 <% }) %>
 

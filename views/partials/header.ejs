@@ -16,7 +16,7 @@
         <li><a href="/hikes" class="nav-link <%= title === 'All Hikes' ? 'active' : '' %>">All Hikes</a></li>
 
         <% if (user) { %>
-          <li><a href="/hikes/new" class="nav-link <%= title === 'Add a Hike' ? 'active' : '' %>">Add a Hike</a></li>
+          <li><a href="/hikes/new" class="nav-link <%= title === 'Add a New Hike' ? 'active' : '' %>">Add a Hike</a></li>
           <li><a href="/logout" class="nav-link">Log Out</a></li>
         <% } else { %>
           <li><a href="/auth/google" class="login nav-link">Log In</a></li>

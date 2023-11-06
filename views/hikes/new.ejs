@@ -3,47 +3,46 @@
 <h2><%= title %></h2>
 
 
-<form action="/hikes" method="POST">
-    <label>Name of Trail/Hike:</label>
-    <input type="text" name="name">
-
-    <br>
+<form class="new-edit-hike-form" action="/hikes" method="POST">
+    <label>Name of Trail/Hike:
+      <br>
+      <input type="text" name="name">
+    </label>
     
-    <label>Location:</label>
-    <input type="text" name="location">
+    <label>Location: 
+      <br>
+      <input type="text" name="location">
+    </label>
+        
+    <label>Difficulty:
+      <br>
+      <select name="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Moderate" selected>Moderate</option>
+        <option value="Challenging">Challenging</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+    </label>
     
-    <br>
+    <label>Route Type:
+      <br>
+      <select name="routeType">
+        <option value="Loop">Loop</option>
+        <option value="Out and Back" selected>Out and Back</option>
+        <option value="Point to Point">Point to Point</option>
+      </select>
+    </label>
+          
+    <label>Length (in miles to the first decimal):
+      <br>
+      <input type="text" name="length" pattern="\d+(\.\d{1})?" required>
+    </label>
+        
+    <label>Description:
+      <br>
+      <textarea class="hike-form-textarea" name="description" cols="30" rows="10"></textarea>
+    </label>
     
-    <label>Difficulty:</label>
-    <select name="difficulty">
-      <option value="easy">Easy</option>
-      <option value="moderate" selected>Moderate</option>
-      <option value="challenging">Challenging</option>
-      <option value="advanced">Advanced</option>
-    </select>
-
-    <br>
-    
-    <label>Route Type:</label>
-    <select name="routeType">
-      <option value="loop">Loop</option>
-      <option value="out and back" selected>Out and Back</option>
-      <option value="point to point">Point to Point</option>
-    </select>
-    
-    <br>
-    
-    <label>Length (in miles):</label>
-    <input type="text" name="length" pattern="\d+(\.\d{1})?" title="Please enter a valid number with one decimal place" required>
-    
-    <br>
-    
-    <label>Description:</label>
-    <br>
-    <textarea name="description" cols="30" rows="10"></textarea>
-    
-    <br>
-
     <fieldset>
       <legend>Categories (select all that apply):</legend>
       <label>
@@ -52,24 +51,44 @@
       </label>
 
       <label>
+        <input type="checkbox" name="categories" value="Kid-Friendly"> 
+        Kid-Friendly
+      </label>
+
+      <label>
+        <input type="checkbox" name="categories" value="River">
+        River
+      </label>
+
+      <label>
         <input type="checkbox" name="categories" value="Scenic Views">
         Scenic Views
       </label>
 
       <label>
-        <input type="checkbox" name="categories" value="Wildlife"> 
-        Wildlife
+        <input type="checkbox" name="categories" value="Scramble">
+        Scramble
       </label>
 
       <label>
         <input type="checkbox" name="categories" value="Waterfalls"> 
         Waterfalls
       </label>
-
+      
+      <label>
+        <input type="checkbox" name="categories" value="Wildflowers"> 
+        Wildflowers
+      </label>
+      
+      <label>
+        <input type="checkbox" name="categories" value="Wildlife"> 
+        Wildlife
+      </label>
+      
     </fieldset>
-  
     <br>
-    <input type="submit" value="Add Hike">
+    <br>
+    <input class="add-edit-hike" type="submit" value="Add Hike">
   </form>
 
 

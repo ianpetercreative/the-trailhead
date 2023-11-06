@@ -1,88 +1,137 @@
 <%- include('../partials/header') %>
 
-<h2><%= title %></h2>
+<div class="show-page-hero">
+  <div class="show-page-image"></div>
+  <div class="show-page-overlay">
+    <div class="show-title"><%= title %></div>
+    <div class="show-location"><%= hike.location %></div>
+      <div class="show-rating">
+        <img src="/images/star.png" alt="rating-star" class="rating-star">
+        &nbsp;
+        <% if (hike.reviews.length) { %>
+          <% let total = 0 %>
+          <% hike.reviews.forEach((r) => { %>
+            <% total += r.rating %>
+            <% }) %>
+            <% hike.rating = (total / hike.reviews.length).toFixed(1) %>
+            <%= hike.rating %> (<%= hike.reviews.length %>)
+            <% } else { %>
+              No Reviews Yet
+              <% } %>
+      </div>
+      <span class="show-difficulty <% if (hike.difficulty === 'Easy') { %>
+              easy
+              <% } else if (hike.difficulty === 'Moderate') { %> 
+              moderate
+              <% } else if (hike.difficulty === 'Challenging') { %>
+              challenging
+              <% } else if (hike.difficulty === 'Advanced') { %> 
+              advanced
+              <% } %>"><%= hike.difficulty %>
+      </span>
+  </div>
+</div>
+
+<% if (user) { %>
+  <a class="edit-hike" href="/hikes/<%= hike._id %>/edit">Edit Hike</a>
+  <% } %>
+
 <br>
-<div>Location: <%= hike.location %></div>
 <br>
-<div>Difficulty: <%= hike.difficulty %></div>
+<section class="show-page-body">
+<table class="show-hike-details">
+  <thead>
+    <th class="detail-title">Route Type:</th>
+    <th class="detail-title">Length:</th>
+  </thead>
+  <tr>
+    <td class="detail-text"><%= hike.routeType %></td>
+    <td class="detail-text"><%= hike.length %> miles</td>
+  </tr>
+</table>
+
 <br>
-<div>Route Type: <%= hike.routeType %></div>
+
+<div class="detail-title">Description:</div>
+<div class="description"><%= hike.description %></div>
 <br>
-<div>Length: <%= hike.length %> miles</div>
-<br>
-<div>Description: <%= hike.description %></div>
-<br>
-<div>Categories: 
+<div class="detail-title">Categories:</div>
+<div class="show-categories">
     <% hike.categories.forEach((c) => { %>
         <span class="hikes-show-category"><%= c %></span>
     <% }) %>
 </div>
-<% if (user) { %>
-<a href="/hikes/<%= hike._id %>/edit">Edit Hike</a>
-<% } %>
 
 <br>
 <br>
 
 <h2>Reviews</h2>
-<% if (user) { %>
-    <form id="add-review-form" method="POST"
-      action="/hikes/<%= hike._id %>/reviews">
-      <label>Review:</label>
-      <textarea name="content"></textarea>
-      <label>Rating:</label>
-      <select name="rating">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5" selected>5</option>
-      </select>
-      <input type="submit" value="Add Review">
-    </form>
-<% } else { %>
-<p><em>Sign in to leave a review of your own!</em></p>
-<% } %>
+
+<br>
 
 <% if (hike.reviews.length) { %>
-    <table>
+  <table class="review-table">
       <thead>
         <tr>
           <th>User</th>
           <th>Date</th>
           <th>Review</th>
           <th>Rating</th>
-          <th></th>
         </tr>
       </thead>
-<tbody>
+      <tbody>
     <% let total = 0 %>
     <% hike.reviews.forEach(function(r) { %>
       <% total += r.rating %>
       <tr>
         <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
-        <!-- <td></td> -->
         <td><%= r.createdAt.toLocaleDateString() %></td>
-        <td><%= r.content %></td>
+        <td class="review-content"><%= r.content %></td>
         <td><%= r.rating %></td>
         <td>
           <% if (user?._id.equals(r.user)) { %>
             <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
               <button type="submit">X</button>
             </form>
-          <% } %>
-        </td>
-      </tr>
-    <% }); %>
-    <tr>
+            <% } %>
+          </td>
+        </tr>
+        <% }); %>
+        <tr>
       <td colspan="3"></td>
       <% hike.rating = (total / hike.reviews.length).toFixed(1) %>
-      <td><strong><%= hike.rating %></strong></td>
+      <td><strong>Avg: <%= hike.rating %></strong></td>
     </tr>
   </tbody>
 </table>
 <% } else { %>
-<h5>No Reviews Yet</h5>
+  <h5>No Reviews Yet</h5>
+  <% } %>
+</section>
+
+<% if (user) { %>
+    <form id="add-review-form" method="POST"
+      action="/hikes/<%= hike._id %>/reviews">
+      <label>Review:
+        <br>
+        <textarea name="content" required></textarea>
+      </label>
+      <br>
+      <label>Rating:
+        <br>
+        <select name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+        </select>
+      </label>
+      <br>
+      <input class="review-submit" type="submit" value="Add Review">
+    </form>
+<% } else { %>
+<div><em>Sign in to leave a review of your own!</em></div>
 <% } %>
 
 <%- include('../partials/footer') %>
