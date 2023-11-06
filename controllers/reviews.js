@@ -23,7 +23,6 @@ module.exports = {
 
   async function deleteReview(req, res) {
     const hike = await Hike.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
-    console.log(hike)
     if (!hike) return res.redirect('/hikes');
     hike.reviews.remove(req.params.id);
     await hike.save();

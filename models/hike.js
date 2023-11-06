@@ -28,7 +28,7 @@ const hikeSchema = new Schema({
     name: { type: String, required: true },
     location: { type: String, required: true },
     difficulty: { type: String, required: true, enum: ['Easy', 'Moderate', 'Challenging', 'Advanced'], default: 'Moderate' },
-    routeType: { type: String, enum: ['Loop', 'Out and Back', 'Point to Point'], default: 'out and back' },
+    routeType: { type: String, enum: ['Loop', 'Out and Back', 'Point to Point'], default: 'Out and Back' },
     length: { type: Number, required: true, min: 0.1, max: 999.9 },
     description: { type: String },
     categories: [{ type: String }],

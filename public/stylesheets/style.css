@@ -53,15 +53,6 @@ h2 {
   color: #DDA15E; 
 }
 
-
-
-
-
-
-
-
-/* this stuff */
-
 #hikes-index-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -434,3 +425,4 @@ legend {
 .review-content {
   text-align: left;
 }
+
